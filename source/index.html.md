@@ -17,13 +17,29 @@ Integrate the AssemblyAI API to recognize speech in your application in real-tim
 
 # Custom Models
 
-Upload your historical transcripts to AssemblyAI to create a custom model that will be up to 50% more accurate than generic speech APIs. Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.
+Upload your historical transcripts (just the text) to AssemblyAI to create a custom model that will be up to 50% more accurate than generic speech APIs.
 
 Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user.
+
+## How it Works
+
+AssemblyAI learns from the text in your historical transcripts to create a custom model
+
+## Example
+
+
+
+## Bootstrapping custom models
+
+Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.
+
+See examples in the Guides section.
+
 # Guides
 
-## Creating a Custom Model for better recognition accuracy
-## Creating a Custom Model to recognize custom words
+## Creating a custom model for better accuracy
+## Creating a custom model to recognize custom words
+## Boostrapping a custom model for better accuracy
 ## Getting a transcript in real-time
 ## Getting a transcript of an audio file asynchronously
 
