@@ -27,7 +27,7 @@ AssemblyAI learns from the text in your historical transcripts to create a custo
 
 ## Example
 
-
+Lets say you are transcribing phone calls for 10 different customers. Using the historical transcripts of the phone calls for each customer, you would create a custom model for each customer. Then, when you send audio to the API for transcribing, you can tell the API which custom model to use to transcribe the speech.
 
 ## Bootstrapping custom models
 
