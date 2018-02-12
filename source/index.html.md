@@ -21,15 +21,15 @@ Upload your historical transcripts (just the text) to AssemblyAI to create a cus
 
 Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user.
 
-## How it Works
+### How it Works
 
 AssemblyAI learns from the text in your historical transcripts to create a custom model
 
-## Example
+### Example
 
 Lets say you are transcribing phone calls for 10 different customers. Using the historical transcripts of the phone calls for each customer, you would create a custom model for each customer. Then, when you send audio to the API for transcribing, you can tell the API which custom model to use to transcribe the speech.
 
-## Bootstrapping custom models
+### Bootstrapping custom models
 
 Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.
 
