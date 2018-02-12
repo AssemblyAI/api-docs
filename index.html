@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,7 +219,27 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+            <a href="#assemblyai" class="toc-h1 toc-link" data-title="assemblyai">AssemblyAI</a>
+          </li>
+          <li>
+            <a href="#custom-models" class="toc-h1 toc-link" data-title="custom-models">Custom Models</a>
+          </li>
+          <li>
+            <a href="#guides" class="toc-h1 toc-link" data-title="guides">Guides</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-custom-model-for-better-recognition-accuracy" class="toc-h2 toc-link" data-title="creating-a-custom-model-for-better-recognition-accuracy">Creating a Custom Model for better recognition accuracy</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-custom-model-to-recognize-custom-words" class="toc-h2 toc-link" data-title="creating-a-custom-model-to-recognize-custom-words">Creating a Custom Model to recognize custom words</a>
+                  </li>
+                  <li>
+                    <a href="#getting-a-transcript-in-real-time" class="toc-h2 toc-link" data-title="getting-a-transcript-in-real-time">Getting a transcript in real-time</a>
+                  </li>
+                  <li>
+                    <a href="#getting-a-transcript-of-an-audio-file-asynchronously" class="toc-h2 toc-link" data-title="getting-a-transcript-of-an-audio-file-asynchronously">Getting a transcript of an audio file asynchronously</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
@@ -241,9 +258,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
-          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
@@ -253,13 +267,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='assemblyai'>AssemblyAI</h1>
+<p>Integrate the AssemblyAI API to recognize speech in your application in real-time or asynchronously. Create custom models to more accurately recognize speech, and expand vocabulary with custom words like product/person names.</p>
+<h1 id='custom-models'>Custom Models</h1>
+<p>Upload your historical transcripts to AssemblyAI to create a custom model that will be up to 50% more accurate than generic speech APIs. Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user.</p>
+<h1 id='guides'>Guides</h1><h2 id='creating-a-custom-model-for-better-recognition-accuracy'>Creating a Custom Model for better recognition accuracy</h2><h2 id='creating-a-custom-model-to-recognize-custom-words'>Creating a Custom Model to recognize custom words</h2><h2 id='getting-a-transcript-in-real-time'>Getting a transcript in real-time</h2><h2 id='getting-a-transcript-of-an-audio-file-asynchronously'>Getting a transcript of an audio file asynchronously</h2><h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
@@ -432,72 +446,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
