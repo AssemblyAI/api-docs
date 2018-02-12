@@ -23,7 +23,9 @@ Create as many custom models as you want: one per customer, one per dialogue sta
 
 ### How it Works
 
-AssemblyAI learns from the text in your historical transcripts to create a custom model
+AssemblyAI's algorithms learn from the text in your historical transcripts to create a custom model. The custom model will be more attuned for the types of things commonly spoken in your use case compared to a generic, one-size fits all model.
+
+You can then tell the API to use your custom model when transcribing speech going for more accurate transcripts.
 
 ### Example
 
