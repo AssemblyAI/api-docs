@@ -3,27 +3,29 @@ title: AssemblyAI Docs
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - errors
-
 search: true
 ---
 
-# Introduction
+# AssemblyAI
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Integrate the AssemblyAI API to recognize speech in your application in real-time or asynchronously. Create custom models to more accurately recognize speech, and expand vocabulary with custom words like product/person names.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Custom Models
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Upload your historical transcripts to AssemblyAI to create a custom model that will be up to 50% more accurate than generic speech APIs. Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.
+
+Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user.
+# Guides
+
+## Creating a Custom Model for better recognition accuracy
+## Creating a Custom Model to recognize custom words
+## Getting a transcript in real-time
+## Getting a transcript of an audio file asynchronously
 
 # Authentication
 
