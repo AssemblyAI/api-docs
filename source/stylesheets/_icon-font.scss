@@ -10,6 +10,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Hurme";
+  src: url("../fonts/HurmeGeometricSans1-Bold.eot?") format("embedded-opentype"),
+     url("../fonts/HurmeGeometricSans1-Bold.woff2") format("woff2"),
+     url("../fonts/HurmeGeometricSans1-Bold.woff") format("woff"),
+     url("../fonts/HurmeGeometricSans1-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "bitty";
+  src: url("../fonts/Minecraft.eot?") format("embedded-opentype"),
+     url("../fonts/Minecraft.woff2") format("woff2"),
+     url("../fonts/Minecraft.woff") format("woff"),
+     url("../fonts/Minecraft.ttf") format("truetype");
+}
+
 %icon {
   font-family: 'slate';
   speak: none;
