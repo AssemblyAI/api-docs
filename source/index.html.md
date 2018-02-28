@@ -19,7 +19,7 @@ Create custom models to more accurately recognize speech, and expand vocabulary 
 
 # Custom Models
 
-Upload text data to AssemblyAI to create custom models that will be up to 50% more accurate than generic speech APIs. This text data can be historical transcripts, keywords/phrases.
+Upload text data to AssemblyAI to create custom models that will be up to 50% more accurate than generic speech APIs. This text data can be historical transcripts, or keywords/phrases.
 
 Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user of your application.
 
@@ -47,7 +47,7 @@ Here are the steps to create a custom model:
 
 ## Bootstrapping custom models
 
-Don’t have historical transcripts? You can use our default models, or you can upload a small amount of example transcripts to bootstrap a custom model.
+Don’t have historical transcripts? You can still transcribe without a custom model. Your transcriptions will be made using our default models. Accuracy will be pretty good, but less accurate than a custom model. You can also upload a small amount of example transcripts to bootstrap a custom model.
 
 See examples in the Guides section.
 
@@ -61,213 +61,69 @@ See examples in the Guides section.
 
 # Authentication
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+> Setting the Authorization header with curl
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.assemblyai.com/v1/model"
+  -H "Authorization: your-secret-api-token"
 ```
 
-```javascript
-const kittn = require('kittn');
+Authentication with the API is accomplished with with header argument, "Authorization". This is required for all API endpoints.
 
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+> Make sure to replace `your-secret-api-token` with your API key.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>your-secret-api-token</code> with your personal API key.
 </aside>
 
-# Kittens
+# /model
 
-## Get All Kittens
+## POST /model
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+> Create a custom model to be more accurate at detecting two keywords "foo" and "bar"
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+curl --request POST \
+    --url 'https://api.assemblyai.com/v1/model' \
+    --header 'authorization: your-secret-api-token' \
+    --data '
+    {
+      "name": "foobar",
+      "phrases": ["foo", "bar"]
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+{
+  "model": {
+    "status": "training",
+    "updated": "2017-12-11T23:14:48.539760Z",
+    "name": "foobar",
+    "warning": "Phrase count low, adding phrases will improve accuracy",
+    "build": 0,
+    "id": 76089,
+    "closed_domain": false
   }
-]
+}
 ```
 
-This endpoint retrieves all kittens.
+Create a custom model.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://api.assemblyai.com/v1/model`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Example | Required | Description
+--------- | ------- | ----------- | -----------
+phrases | ["foo", "bar"] | Yes | Upload text data to AssemblyAI to create custom models. This text data can be historical transcripts, or keywords/phrases.
+name | acme | No | The name of the model you are creating.
+closed_domain | True | No | Default is False. Set to True to restrict recognition to only words found in the phrases array. This improves accuracy for simple use cases where you only need to recognize a few commands/words.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+The <code>status</code> key in the response will change from <code>training</code> to <code>trained</code> in about 10-20 minutes. Once the status is <code>trained</code> you can begin using the custom model to create transcripts.
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
