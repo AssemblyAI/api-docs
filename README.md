@@ -10,4 +10,10 @@
 
 Edit `source/index.html.md` which is the markdown file used to create the docs. Markdown instructions for Slate can be found here: [https://github.com/lord/slate/wiki/Markdown-Syntax](https://github.com/lord/slate/wiki/Markdown-Syntax)
 
+# Deploying changes
 
+After committing and pushing your changes to master, run:
+
+```
+./deploy.sh
+```
