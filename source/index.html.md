@@ -103,14 +103,13 @@ curl --request POST \
     "updated": "2017-12-11T23:14:48.539760Z",
     "name": "foobar",
     "warning": "Phrase count low, adding phrases will improve accuracy",
-    "build": 0,
     "id": 76089,
     "closed_domain": false
   }
 }
 ```
 
-Create a custom model.
+Create a custom speech recognition model. To learn more about custom models, read <a href="#custom-models">here.</a>
 
 ### HTTP Request
 
