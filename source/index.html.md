@@ -71,8 +71,6 @@ curl "https://api.assemblyai.com/v1/model"
 
 Authentication with the API is accomplished with with header argument, "Authorization". This is required for all API endpoints.
 
-> Make sure to replace `your-secret-api-token` with your API key.
-
 <aside class="notice">
 You must replace <code>your-secret-api-token</code> with your personal API key.
 </aside>
