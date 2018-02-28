@@ -13,27 +13,41 @@ search: true
 
 # AssemblyAI
 
-Integrate the AssemblyAI API to recognize speech in your application in real-time or asynchronously. Create custom models to more accurately recognize speech, and expand vocabulary with custom words like product/person names.
+Integrate the AssemblyAI API to recognize speech in your application in real-time or asynchronously.
+
+Create custom models to more accurately recognize speech, and expand vocabulary with custom words like product/person names.
 
 # Custom Models
 
-Upload your historical transcripts (just the text) to AssemblyAI to create a custom model that will be up to 50% more accurate than generic speech APIs.
+Upload text data to AssemblyAI to create custom models that will be up to 50% more accurate than generic speech APIs. This text data can be historical transcripts, keywords/phrases.
 
-Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user.
+Create as many custom models as you want: one per customer, one per dialogue state in an IVR system, or one per user of your application.
 
-### How it Works
+## How it Works
 
-AssemblyAI's algorithms learn from the text in your historical transcripts to create a custom model. The custom model will be more attuned for the types of things commonly spoken in your use case compared to a generic, one-size fits all model.
+AssemblyAI's algorithms learn from the text that you upload to the API. We do this to fine tune our neural networks and create a custom speech recognition model for your application. This process takes about 10-20 minutes.
 
-You can then tell the API to use your custom model when transcribing speech going for more accurate transcripts.
+Then, when you make API calls to transcribe audio, your custom model will be used and you'll get more accurate transcripts as a result.
 
-### Example
+Here are the steps to create a custom model:
 
-Lets say you are transcribing phone calls for 10 different customers. Using the historical transcripts of the phone calls for each customer, you would create a custom model for each customer. Then, when you send audio to the API for transcribing, you can tell the API which custom model to use to transcribe the speech.
+1. `POST` text data (historical transcripts or keywords/phrases) to `/model/`
+1. `GET` `/model/` to get the status of your custom model
+1. `POST` audio to `/transcript/` and include the `id` of your custom model as an API parameter
 
-### Bootstrapping custom models
+## Examples
 
-Don’t have historical transcripts? You can also upload example transcripts to AssemblyAI to bootstrap a custom model.
+**Improving recognition accuracy for recordings**
+
+*Call Analytics Inc.* transcribes sales call recordings for 10 different customers. *Call Analytics Inc.* creates 10 custom models, one per customer, using the historical transcripts they've created for each customer. Now, when sending recordings to the API for transcription, *Call Analytics Inc.* tells the API which custom model to use with an API parameter. Creating a custom model for each of *Call Analytics Inc.'s* customers allows them to improve accuracy for each customer.
+
+**Improving recognition accuracy for keywords/phrases**
+
+*Johnny1.com* transcribes podcasts and looks for certain keywords/phrases to do topic tagging. *Johnny1.com* uploads the keywords and phrases they want to detect to the API to create a custom model. Then, *Johnny1.com*  uses this custom model to transcribe podcasts and the API is more accurate at detecting those keywords/phrases when they appear in the audio.
+
+## Bootstrapping custom models
+
+Don’t have historical transcripts? You can use our default models, or you can upload a small amount of example transcripts to bootstrap a custom model.
 
 See examples in the Guides section.
 
